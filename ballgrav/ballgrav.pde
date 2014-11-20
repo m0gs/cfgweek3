@@ -1,13 +1,10 @@
 float x;
 float ballSize = 40;
 float y;
-float speed = 5;
+float yspeed = 5, xspeed = 5;
 float fall = 3-9.8*(y+0.1);
 boolean movingup=false;
 boolean movingacross=false;
-
-
-
 
 void setup() {
   size(800, 500);
@@ -21,9 +18,11 @@ void draw() {
     movingup=true;
   }
   if (movingup){
-    y = y-fall;
+    y = y-yspeed;
+    yspeed = yspeed-0.05;
   }else{
-    y = y+speed;
+    y = y+yspeed;
+    yspeed = yspeed+0.05;
   }
   if (y==0){
     movingup=false;
@@ -33,9 +32,9 @@ void draw() {
    movingacross=true;
  }
  if(movingacross){
-   x = x-speed;
+   x = x-xspeed;
  } else{
-   x=x+speed;
+   x=x+xspeed;
  }
  if(x==0){
    movingacross=false;
